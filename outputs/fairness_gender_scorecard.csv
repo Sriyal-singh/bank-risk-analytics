@@ -1,0 +1,3 @@
+group,applicants,approval_rate,bad_rate_of_approved,approval_rate_of_good_applicants,disparate_impact_vs_best
+F,3376,0.6919,0.0873,0.7364,0.992
+M,4124,0.6974,0.0814,0.7434,1.0

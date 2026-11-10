@@ -1,0 +1,319 @@
+{
+  "1_delinquency": {
+    "champion": "Logistic Regression (class_weight=balanced)",
+    "models": {
+      "Logistic Regression (class_weight=balanced)": {
+        "roc_auc": 0.831,
+        "gini": 0.6621,
+        "pr_auc": 0.4842,
+        "ks": 0.503,
+        "precision@0.5": 0.2974,
+        "recall@0.5": 0.727,
+        "recall_in_top_20pct": 0.6108
+      },
+      "Gradient Boosting (no weighting)": {
+        "roc_auc": 0.8272,
+        "gini": 0.6543,
+        "pr_auc": 0.4768,
+        "ks": 0.4987,
+        "precision@0.5": 0.6376,
+        "recall@0.5": 0.2473,
+        "recall_in_top_20pct": 0.6189
+      },
+      "Gradient Boosting (class_weight=balanced)": {
+        "roc_auc": 0.8255,
+        "gini": 0.6511,
+        "pr_auc": 0.4705,
+        "ks": 0.5025,
+        "precision@0.5": 0.301,
+        "recall@0.5": 0.7081,
+        "recall_in_top_20pct": 0.623
+      }
+    },
+    "champion_calibrated": {
+      "roc_auc": 0.8302,
+      "gini": 0.6604,
+      "pr_auc": 0.4846,
+      "ks": 0.4996,
+      "mean_predicted_rate": 0.1198,
+      "actual_rate": 0.1184
+    },
+    "base_rate": 0.1184,
+    "ev_rule_contact_share": 0.269,
+    "ev_rule_net_value_model": "Rs 2,564,707",
+    "ev_rule_net_value_random_same_effort": "Rs 156,577",
+    "best_fraction_on_grid": 0.3,
+    "top_decile_lift": 4.22,
+    "top_drivers": [
+      "late_12m",
+      "utilization",
+      "payment_ratio",
+      "unpaid_share",
+      "debt_to_income"
+    ],
+    "shap": "shap not installed - used permutation importance + occlusion reasons instead",
+    "figures": [
+      "outputs/figures/delinquency_pr_curve.png",
+      "outputs/figures/delinquency_deciles.png",
+      "outputs/figures/delinquency_value_curve.png",
+      "outputs/figures/delinquency_importance.png"
+    ]
+  },
+  "2_credit_scoring": {
+    "models": {
+      "WOE scorecard": {
+        "roc_auc": 0.7315,
+        "gini": 0.463,
+        "pr_auc": 0.3158,
+        "ks": 0.3426
+      },
+      "Logistic regression": {
+        "roc_auc": 0.7443,
+        "gini": 0.4886,
+        "pr_auc": 0.3558,
+        "ks": 0.3605
+      },
+      "Gradient boosting": {
+        "roc_auc": 0.7361,
+        "gini": 0.4723,
+        "pr_auc": 0.3355,
+        "ks": 0.3465
+      }
+    },
+    "approval_policy": {
+      "score_cutoff": 534.5,
+      "scorecard": {
+        "approval_rate": 0.6949,
+        "bad_rate_of_approved": 0.084
+      },
+      "gradient_boosting": {
+        "approval_rate": 0.6936,
+        "bad_rate_of_approved": 0.0842
+      },
+      "portfolio_bad_rate_if_approve_all": 0.1401
+    },
+    "fairness": {
+      "scorecard": {
+        "gender_min_disparate_impact": 0.992,
+        "age_min_disparate_impact": 0.912,
+        "four_fifths_rule_flag": false
+      },
+      "gradient_boosting": {
+        "gender_min_disparate_impact": 0.998,
+        "age_min_disparate_impact": 0.914,
+        "four_fifths_rule_flag": false
+      }
+    },
+    "fairness_tables": {
+      "scorecard": {
+        "gender": [
+          {
+            "group": "F",
+            "applicants": 3376,
+            "approval_rate": 0.6919,
+            "bad_rate_of_approved": 0.0873,
+            "approval_rate_of_good_applicants": 0.7364,
+            "disparate_impact_vs_best": 0.992
+          },
+          {
+            "group": "M",
+            "applicants": 4124,
+            "approval_rate": 0.6974,
+            "bad_rate_of_approved": 0.0814,
+            "approval_rate_of_good_applicants": 0.7434,
+            "disparate_impact_vs_best": 1.0
+          }
+        ],
+        "age": [
+          {
+            "group": "30-45",
+            "applicants": 2714,
+            "approval_rate": 0.7115,
+            "bad_rate_of_approved": 0.0849,
+            "approval_rate_of_good_applicants": 0.7626,
+            "disparate_impact_vs_best": 1.0
+          },
+          {
+            "group": "46+",
+            "applicants": 3295,
+            "approval_rate": 0.7023,
+            "bad_rate_of_approved": 0.0847,
+            "approval_rate_of_good_applicants": 0.7393,
+            "disparate_impact_vs_best": 0.987
+          },
+          {
+            "group": "<30",
+            "applicants": 1491,
+            "approval_rate": 0.6486,
+            "bad_rate_of_approved": 0.0807,
+            "approval_rate_of_good_applicants": 0.7017,
+            "disparate_impact_vs_best": 0.912
+          }
+        ]
+      },
+      "gradient_boosting": {
+        "gender": [
+          {
+            "group": "F",
+            "applicants": 3376,
+            "approval_rate": 0.6943,
+            "bad_rate_of_approved": 0.0943,
+            "approval_rate_of_good_applicants": 0.7333,
+            "disparate_impact_vs_best": 1.0
+          },
+          {
+            "group": "M",
+            "applicants": 4124,
+            "approval_rate": 0.693,
+            "bad_rate_of_approved": 0.0759,
+            "approval_rate_of_good_applicants": 0.7431,
+            "disparate_impact_vs_best": 0.998
+          }
+        ],
+        "age": [
+          {
+            "group": "30-45",
+            "applicants": 2714,
+            "approval_rate": 0.7085,
+            "bad_rate_of_approved": 0.0827,
+            "approval_rate_of_good_applicants": 0.7613,
+            "disparate_impact_vs_best": 1.0
+          },
+          {
+            "group": "46+",
+            "applicants": 3295,
+            "approval_rate": 0.702,
+            "bad_rate_of_approved": 0.0821,
+            "approval_rate_of_good_applicants": 0.741,
+            "disparate_impact_vs_best": 0.991
+          },
+          {
+            "group": "<30",
+            "applicants": 1491,
+            "approval_rate": 0.6479,
+            "bad_rate_of_approved": 0.0921,
+            "approval_rate_of_good_applicants": 0.6922,
+            "disparate_impact_vs_best": 0.914
+          }
+        ]
+      }
+    },
+    "top_information_value": [
+      {
+        "feature": "late_12m",
+        "information_value": 0.2257
+      },
+      {
+        "feature": "debt_to_income",
+        "information_value": 0.1953
+      },
+      {
+        "feature": "loan_to_income",
+        "information_value": 0.1414
+      },
+      {
+        "feature": "utilization",
+        "information_value": 0.1156
+      },
+      {
+        "feature": "credit_history_years",
+        "information_value": 0.0434
+      }
+    ],
+    "figures": [
+      "outputs/figures/scoring_score_distribution.png",
+      "outputs/figures/scoring_fairness_approval_rates.png"
+    ]
+  },
+  "3_fraud": {
+    "fraud_rate_test": 0.00637,
+    "models_test": {
+      "Isolation Forest (unsupervised)": {
+        "pr_auc": 0.0928,
+        "roc_auc": 0.8879,
+        "precision_at_top_1pct": 0.1,
+        "recall_at_top_1pct": 0.1569
+      },
+      "Logistic Regression (balanced)": {
+        "pr_auc": 0.2373,
+        "roc_auc": 0.9326,
+        "precision_at_top_1pct": 0.2583,
+        "recall_at_top_1pct": 0.4052
+      },
+      "Gradient Boosting (weighted)": {
+        "pr_auc": 0.176,
+        "roc_auc": 0.9282,
+        "precision_at_top_1pct": 0.2167,
+        "recall_at_top_1pct": 0.3399
+      },
+      "Naive baseline: always predict 'not fraud'": {
+        "accuracy": 0.9936,
+        "recall": 0.0,
+        "note": "looks great on accuracy, catches zero fraud"
+      }
+    },
+    "champion": "Logistic Regression (balanced)",
+    "business": {
+      "alert_threshold": 0.8382,
+      "alerts_per_10k_transactions": 354.2,
+      "precision": 0.1129,
+      "recall": 0.6275,
+      "fraud_loss_without_model": "Rs 888,428",
+      "total_cost_with_model (missed fraud + review cost)": "Rs 337,871",
+      "net_saving": "Rs 550,558",
+      "saving_pct": 62.0
+    },
+    "figures": [
+      "outputs/figures/fraud_pr_curve.png",
+      "outputs/figures/fraud_cost_curve.png"
+    ]
+  },
+  "4_churn": {
+    "champion": "Logistic Regression",
+    "models": {
+      "Logistic Regression": {
+        "roc_auc": 0.7985,
+        "gini": 0.5971,
+        "pr_auc": 0.52,
+        "ks": 0.4535
+      },
+      "Gradient Boosting": {
+        "roc_auc": 0.7932,
+        "gini": 0.5863,
+        "pr_auc": 0.5125,
+        "ks": 0.441
+      }
+    },
+    "strategy": {
+      "customers_in_test_set": 7500,
+      "actual_churn_rate": 0.1809,
+      "revenue_at_risk (annual, churners)": "Rs 14,375,899",
+      "model_targets": 1402,
+      "model_targets_pct": 18.7,
+      "churners_reached_pct": 44.4,
+      "net_value_model_targeting": "Rs 1,815,580",
+      "net_value_random_same_size": "Rs -759,235",
+      "net_value_offer_everyone": "Rs -4,062,050",
+      "assumptions": "offer cost Rs 1500, 25% of churners retained, 2 years of revenue protected"
+    },
+    "action_playbook_counts": {
+      "Salary-account upgrade offer": 714,
+      "Re-engagement offer (cashback on next 5 transactions)": 241,
+      "Loyalty reward / fee waiver": 179,
+      "Service-recovery call from relationship manager": 138,
+      "Cross-sell bundle (card + savings)": 130
+    },
+    "top_drivers": [
+      "inactive_months",
+      "app_logins_30d",
+      "salary_credited",
+      "complaints_12m",
+      "num_products"
+    ],
+    "top_decile_lift": 3.34,
+    "figures": [
+      "outputs/figures/churn_campaign_value.png",
+      "outputs/figures/churn_drivers.png"
+    ]
+  }
+}

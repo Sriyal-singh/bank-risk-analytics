@@ -1,0 +1,9 @@
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.3
+scipy>=1.11
+matplotlib>=3.8
+joblib>=1.3
+streamlit>=1.30      # only for app.py
+shap>=0.44           # optional: SHAP plot for the delinquency model
+pytest>=7.4          # only for tests

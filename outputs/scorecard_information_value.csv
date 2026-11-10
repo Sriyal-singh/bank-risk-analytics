@@ -1,0 +1,12 @@
+feature,information_value
+late_12m,0.2257
+debt_to_income,0.1953
+loan_to_income,0.1414
+utilization,0.1156
+credit_history_years,0.0434
+income,0.0249
+employment,0.0176
+city_tier,0.0034
+loan_term_months,0.0022
+tenure_months,0.0017
+num_products,0.0001
